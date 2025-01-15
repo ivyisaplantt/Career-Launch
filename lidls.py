@@ -33,7 +33,7 @@ def scrape_product_info():
 
     # parse user input
     search_term = input("Enter the product name or keyword to search for: ").strip().lower()
-    search_input.send_keys(search_term)
+    search_input.send_keys(search_term) # inputs the search term in search box
     search_input.submit() # hits enter
 
     time.sleep(2) # wait for page to reload
@@ -55,12 +55,12 @@ def scrape_product_info():
         span = item.select_one('span') # the price
         a = item.select_one('a') # the link
         img = item.select_one('img') # the image link
-        if h2 and span and a and (search_term in h2.text.lower()): # checks if the name price and link exists and then if it matches our input
+        if h2 and span and a and img and (search_term in h2.text.lower()): # checks if the name price and link exists and then if it matches our input
             # adds to the empty array a dictionary object w/ info
             matching_products.append({
                 "name": h2.text.strip(),
                 "price": span.text.strip().split('*')[0], # use only the first part before *
-                "link": "https://www.lidl.com" + a.get('href'), # the info we want lies in the href
+                "link": "https://www.lidl.com" + a.get('href'),
                 "image": img.get('src')
             })
 
