@@ -70,14 +70,16 @@ def scrape_product_info():
         
     matching_products.sort(key=get_price)
 
+    n = len(matching_products) # n can be changed to a certain number
+
     # final print statement
     if matching_products:
-        print("Found", len(matching_products), "products matching", search_term, ":\n")
-        for product in matching_products:
-            print("Name:", product['name'])
-            print("Price:", product['price'])
-            print("Link:", product['link'])
-            print("Image:", product['image'], "\n")
+        print("Found", len(matching_products), "products matching", search_term, "\n")
+        for i in range(n):
+            print ("Name:", matching_products[i]['name'])
+            print ("Price:", matching_products[i]['price'])
+            print ("Link:", matching_products[i]['link'])
+            print ("Image:", matching_products[i]['image'], "\n")
     else:
         print("No products found matching", search_term)        
 
