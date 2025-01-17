@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- Plans for later
+  * Make sure that the python can actually link with the HTML
+  * Finish forms
+  * Finish making a basic prototype (THIS) 
+  use document.designMode = "on"; to modify directly on chrome!
+  -->
+<html>
+
+<head>
+    <style>
+        /* Background of website */
+        /* Submit */
+        /* Text */
+        /* Table */
+    </style>
+    <!-- End of style section. -->
+    <title> Groceries Budget Tracker </title>
+</head>
+
+<body>
+    <p>Enter a product to compare prices at two different stores
+        near you:
+    </p>
+    <br>
+    <p>Product:
+        <input type="text" id="product-name" placeholder="Product Name">
+    </p>
+    <br>
+    <!-- form created -->
+    <form action="#" id="product-form" method="get">
+        <!-- Here we can type the stores, however we could also do a dropdown menu. -->
+        <p> Store A: 
+            <select id="store-a">  
+                <option value="1">Lidl</option>  
+                <option value="2">Trader Joe's</option>  
+                <option value="3">Whole Foods</option>  
+                <option value="4">Shoppers</option>
+                <option value="5">Giant</option>
+            </select>
+        </p>
+        <br>
+        <p> Store B: 
+            <select id="store-b">  
+                <option value="1">Lidl</option>  
+                <option value="2">Trader Joe's</option>  
+                <option value="3">Whole Foods</option>  
+                <option value="4">Shoppers</option>
+                <option value="5">Giant</option>
+            </select>
+        </p>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- table for products -->
+    <table id="product-table">
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Store A Price</th>
+            <th>Store B Price</th>
+        </tr>
+        <tr>
+            <td id="storea-name"></td>
+            <td id="storea-price"></td>
+        </tr>
+        <tr>
+            <td id="storeb-name"></td>
+            <td id="storeb-price"></td>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Apples</td>
+                <td>$1.00</td>
+                <td>$1.50</td>
+        </tbody>
+    </table>
+    <a href="budget.html" style="text-decoration: none;">
+        <button> Budget Tracker </button>
+    </a>
+    <script scr= "script.js"></script>
+</body>
