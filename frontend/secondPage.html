@@ -1,57 +1,93 @@
 <!DOCTYPE html>
 <html>
-  
-  <head>
-    <link rel="stylesheet" href="secondPage.css"> 
-  </head>
-  
-  <body>
-    
-    <h1>Find the Best Prices for your Groceries</h1>
 
-    <button type="button">HOME</button>
+<head>
+  <title>Product Search</title>
+  <link rel="icon" type="image/x-icon" 
+    href="https://cdn.iconscout.com/icon/free/png-256/free-shopping-cart-icon-download-in-svg-png-gif-file-formats--trolley-online-user-interface-pack-icons-1502238.png">
+  <link rel="stylesheet" href="secondPage.css">
+  <script scr= "script.js"></script>
+</head>
 
-    <br>
-    <br>
+<body>
 
-    <p>Enter a product to compare prices at two stores near you:</p>
+  <h1>Find the Best Prices for your Groceries</h1>
 
- 
-    <p>Product Name:</p>
-    
-    <input type="text" placeholder="Enter Here">
+  <a href="firstPage.html" style="text-decoration: none;">
+  <button type="button">HOME</button> </a>
 
-    <br>
-    <br>
+  <br>
+  <br>
 
-    <button type="button">Compare Prices</button>
+  <p>Enter a product to compare prices at two stores near you:</p>
 
-    <br>
-    <br>
 
-    <h1>Price Comparison</h1>
-    
-    
-    <style>
-      table, th, td {
-        border:1px solid black;
-      }
-    </style>
-    
-    <table style="width:100%">
-      <tr>
-        <td>Product</td>
-        <td>Store A Price</td>
-        <td>Store B Price</td>
-      </tr>
-      <tr>
-        <td> Enter here</td>
-        <td> Enter here </td>
-        <td> Enter here </td>
-      </tr>
-    </table>
-    
-    
-  </body>
+  <p>Product Name:</p>
+
+  <input type="text" placeholder="Enter Here">
+
+  <br>
+
+  <!-- Add CSS for the form, on secondPage.css-->
+  <form action="#" id="product-form" method="get">
+    <!-- Store A-->
+    <p> Store A:
+      <select id="store-a">
+        <option value="0">Select an option</option>
+        <option value="1">Lidl</option>
+        <option value="2">Trader Joe's</option>
+        <option value="3">Whole Foods</option>
+        <option value="4">Shoppers</option>
+        <option value="5">Giant</option>
+      </select>
+    </p>
+    <!-- Store B-->
+    <p> Store B:
+      <select id="store-b">
+        <option value="0">Select an option</option>
+        <option value="1">Lidl</option>
+        <option value="2">Trader Joe's</option>
+        <option value="3">Whole Foods</option>
+        <option value="4">Shoppers</option>
+        <option value="5">Giant</option>
+      </select>
+    </p>
+  </form>
+
+  <br>
+  <br>
+
+  <button type="button">Compare Prices</button>
+
+  <br>
+  <br>
+
+  <!-- Use JS to have table fill with information. -->
+  <h1>Price Comparison</h1>
+
+
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+
+  <table style="width:100%">
+    <tr>
+      <td>Product</td>
+      <td>Store A Price</td>
+      <td>Store B Price</td>
+    </tr>
+    <tr>
+      <td> Enter here</td>
+      <td> Enter here </td>
+      <td> Enter here </td>
+    </tr>
+  </table>
+
+
+</body>
 
 </html>
