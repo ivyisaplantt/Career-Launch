@@ -9,11 +9,12 @@ def home():
 
 @app.route('/secondPage', methods=['GET', 'POST'])
 def secondPage():
-    result = None
+    result = ""
     if request.method == 'POST':
         user_input = request.form['user_input']
         result = scrape_product_info(user_input)
-    return render_template('secondPage.html', result = result)
+        return render_template('secondPage.html', result=result)
+    return render_template('secondPage.html')
 
 @app.route('/thirdPage')
 def thirdPage():

@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+from html import escape
 
 def scrape_product_info(search_term):
     # set up selenium webdriver
@@ -45,7 +46,7 @@ def scrape_product_info(search_term):
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     
     # start finding matching products
-    product_items = soup.select('li.grid-item') # the class li.grid-item holds the information we need
+    product_items = soup.select('div._card_1qtbv_9') # the class li.grid-item holds the information we need
     matching_products = []
     
     for item in product_items: 
@@ -80,8 +81,9 @@ def scrape_product_info(search_term):
     #         print ("Image:", matching_products[i]['image'], "\n")
     # else:
     #     print("No products found matching", search_term)
-
+    
     driver.quit()
+
     return matching_products
 
 if __name__ == '__main__':
