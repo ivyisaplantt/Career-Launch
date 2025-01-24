@@ -36,21 +36,16 @@ def traderjoes(search_term):
     product_items = soup.select('article.SearchResultCard_searchResultCard__3V-_h')
     matching_products = []
 
-    i = 0
     for item in product_items: 
-        if i < 3:
-            h3 = item.select_one('h3') # the name
-            a = item.select_one('a') # the link
-            span = item.select_one('span.ProductPrice_productPrice__price__3-50j') # the price
-            if h3 and span and a and (search_term in h3.text.lower()):
-                matching_products.append({
-                    "name": h3.text.strip(),
-                    "price": span.text.strip(),
-                    "link": "https://www.traderjoes.com" + a.get('href'),
-                })
-            i += 1
-        else:
-            break;
+        h3 = item.select_one('h3') # the name
+        a = item.select_one('a') # the link
+        span = item.select_one('span.ProductPrice_productPrice__price__3-50j') # the price
+        if h3 and span and a and (search_term in h3.text.lower()):
+            matching_products.append({
+                "name": h3.text.strip(),
+                "price": span.text.strip(),
+                "link": "https://www.traderjoes.com" + a.get('href'),
+            })
     
     def get_price(product):
         return product['price']
