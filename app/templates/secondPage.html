@@ -5,7 +5,7 @@
   <title>Product Search</title>
   <link rel="icon" type="image/x-icon" 
     href="https://cdn.iconscout.com/icon/free/png-256/free-shopping-cart-icon-download-in-svg-png-gif-file-formats--trolley-online-user-interface-pack-icons-1502238.png">
-  <link rel="stylesheet" href="secondPage.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='secondPage.css') }}">
   <script scr= "script.js"></script>
 </head>
 
@@ -13,7 +13,7 @@
 
   <h1>Find the Best Prices for your Groceries</h1>
 
-  <a href="firstPage.html" style="text-decoration: none;">
+  <a href="{{ url_for('home') }}" style="text-decoration: none;">
   <button type="button">HOME</button> </a>
 
   <br>
@@ -24,7 +24,10 @@
 
   <p>Product Name:</p>
 
-  <input type="text" placeholder="Enter Here">
+  <form method="POST" action="{{ url_for('secondPage') }}">
+    <input type="text" name="user_input" placeholder="Enter Here">
+    <input type="submit" value="Submit">
+  </form>
 
   <br>
 
@@ -86,6 +89,7 @@
       <td> Enter here </td>
     </tr>
   </table>
+  <p> {{ result }}</p>
 
 
 </body>

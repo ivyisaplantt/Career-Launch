@@ -1,7 +1,5 @@
 # Usage: python lidls.py
 # this script scrapes product name, prices, links, and images from the Lidls website based on user input. it is implemented using bs4 and selenium; bs4 for its ease of use and selenium for its interaction with web content
-# doesn't account for lidl deals
-# parse for item weight ? 
 
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -11,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-def scrape_product_info():
+def scrape_product_info(search_term):
     # set up selenium webdriver
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -32,7 +30,7 @@ def scrape_product_info():
     )
 
     # parse user input
-    search_term = input("Enter the product name or keyword to search for: ").strip().lower()
+    # search_term = input("Enter the product name or keyword to search for: ").strip().lower()
     search_input.send_keys(search_term) # inputs the search term in search box
     search_input.submit() # hits enter
 
@@ -73,17 +71,18 @@ def scrape_product_info():
     n = len(matching_products) # n can be changed to a certain number
 
     # final print statement
-    if matching_products:
-        print("Found", len(matching_products), "products matching", search_term, "\n")
-        for i in range(n):
-            print ("Name:", matching_products[i]['name'])
-            print ("Price:", matching_products[i]['price'])
-            print ("Link:", matching_products[i]['link'])
-            print ("Image:", matching_products[i]['image'], "\n")
-    else:
-        print("No products found matching", search_term)        
+    # if matching_products:
+    #     print("Found", len(matching_products), "products matching", search_term, "\n")
+    #     for i in range(n):
+    #         print ("Name:", matching_products[i]['name'])
+    #         print ("Price:", matching_products[i]['price'])
+    #         print ("Link:", matching_products[i]['link'])
+    #         print ("Image:", matching_products[i]['image'], "\n")
+    # else:
+    #     print("No products found matching", search_term)
 
     driver.quit()
+    return matching_products
 
 if __name__ == '__main__':
     scrape_product_info()

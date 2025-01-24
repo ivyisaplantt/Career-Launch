@@ -5,7 +5,7 @@
   <title>Contact Information</title>
   <link rel="icon" type="image/x-icon" 
     href="https://cdn.iconscout.com/icon/free/png-256/free-shopping-cart-icon-download-in-svg-png-gif-file-formats--trolley-online-user-interface-pack-icons-1502238.png">
-  <link rel="stylesheet" href="thirdPage.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='thirdPage.css') }}">
   <script scr= "script.js"></script>
 </head>
 
@@ -13,7 +13,7 @@
 
   <h1>Contact Information</h1>
 
-  <a href="firstPage.html" style="text-decoration: none;">
+  <a href="{{ url_for('home') }}" style="text-decoration: none;">
   <button type="button">HOME </button> </a>
 
 
@@ -32,7 +32,7 @@
 
 
   <p1>Ivy Lu: </p1>
-  <p> Email: </p>
+  <p> Email: ilu123@terpmail.umd.edu</p>
 
   <br>
   <br>
