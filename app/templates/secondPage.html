@@ -8,9 +8,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='secondPage.css') }}">
   <script scr= "script.js"></script>
 </head>
-
 <body>
-
   <h1>Find the Best Prices for your Groceries</h1>
 
   <a href="{{ url_for('home') }}" style="text-decoration: none;">
@@ -26,42 +24,31 @@
 
   <form method="POST" action="{{ url_for('secondPage') }}">
     <input type="text" name="user_input" placeholder="Enter Here">
-    <input type="submit" value="Submit">
-  </form>
-
-  <br>
-
-  <!-- Add CSS for the form, on secondPage.css-->
-  <form action="#" id="product-form" method="get">
-    <!-- Store A-->
+    <!-- Add CSS for the form, on secondPage.css-->
     <p> Store A:
-      <select id="store-a">
+      <select name="store_a" id="store-a">
         <option value="0">Select an option</option>
-        <option value="1">Lidl</option>
-        <option value="2">Trader Joe's</option>
-        <option value="3">Whole Foods</option>
+        <option value="lidl">Lidl</option>
+        <option value="traderjoes">Trader Joe's</option>
+        <!-- <option value="3">Whole Foods</option>
         <option value="4">Shoppers</option>
-        <option value="5">Giant</option>
+        <option value="5">Giant</option> -->
       </select>
     </p>
-    <!-- Store B-->
+
     <p> Store B:
-      <select id="store-b">
+      <select name="store_b" id="store-b">
         <option value="0">Select an option</option>
-        <option value="1">Lidl</option>
-        <option value="2">Trader Joe's</option>
-        <option value="3">Whole Foods</option>
+        <option value="lidl">Lidl</option>
+        <option value="traderjoes">Trader Joe's</option>
+        <!-- <option value="3">Whole Foods</option>
         <option value="4">Shoppers</option>
-        <option value="5">Giant</option>
+        <option value="5">Giant</option> -->
       </select>
     </p>
+
+    <input type="submit" value="Compare Prices">
   </form>
-
-  <br>
-  <br>
-
-  <button type="button">Compare Prices</button>
-
   <br>
   <br>
 
@@ -76,25 +63,46 @@
       border: 1px solid black;
     }
   </style>
+  <div style="display: flex; justify-content: space-between;">
+    <div style="width: 48%;">
+      <h2>Store A Results</h2>
+      <table style="width: 100%;">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Link</th>
+            <th>Image</th>
+        </tr>
+        {% for item in store_a_results %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td><a href="{{ item.link }}" target="_blank">Product Link</a></td>
+            <td>{% if item.image %}<img src="{{ item.image }}" alt="{{ item.name }}">{% else %}No Image{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
 
-  <table style="width: 50%;">
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Link</th>
-        <th>Image</th>
-    </tr>
-    {% for item in result %}
-    <tr>
-        <td>{{ item.name }}</td>
-        <td>{{ item.price }}</td>
-        <td><a href="{{ item.link }}" target="_blank">Product Link</a></td>
-        <td>{% if item.image %}<img src="{{ item.image }}" alt="{{ item.name }}">{% else %}No Image{% endif %}</td>
-    </tr>
-    {% endfor %}
-  </table>
-
-
+    <div style="width: 48%;">
+      <h2>Store B Results</h2>
+      <table style="width: 100%;">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Link</th>
+            <th>Image</th>
+        </tr>
+        {% for item in store_b_results %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td><a href="{{ item.link }}" target="_blank">Product Link</a></td>
+            <td>{% if item.image %}<img src="{{ item.image }}" alt="{{ item.name }}">{% else %}No Image{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>    
+  </div>
 </body>
-
 </html>

@@ -1,4 +1,3 @@
-# Usage: python lidls.py
 # this script scrapes product name, prices, links, and images from the Lidls website based on user input. it is implemented using bs4 and selenium; bs4 for its ease of use and selenium for its interaction with web content
 
 from bs4 import BeautifulSoup
@@ -8,9 +7,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
-from html import escape
 
-def scrape_product_info(search_term):
+def lidl(search_term):
     # set up selenium webdriver
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -46,7 +44,7 @@ def scrape_product_info(search_term):
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     
     # start finding matching products
-    product_items = soup.select('div._card_1qtbv_9') # the class li.grid-item holds the information we need
+    product_items = soup.select('div._card_1qtbv_9')
     matching_products = []
     
     for item in product_items: 
@@ -69,7 +67,7 @@ def scrape_product_info(search_term):
         
     matching_products.sort(key=get_price)
 
-    n = len(matching_products) # n can be changed to a certain number
+    # n = len(matching_products) # n can be changed to a certain number
 
     # final print statement
     # if matching_products:
@@ -87,4 +85,4 @@ def scrape_product_info(search_term):
     return matching_products
 
 if __name__ == '__main__':
-    scrape_product_info()
+    lidl()
