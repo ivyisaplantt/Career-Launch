@@ -54,14 +54,14 @@ def traderjoes(search_term):
 
     n = len(matching_products)
 
-    if matching_products:
-        print("Found", len(matching_products), "products matching", "eggs", "\n")
-        for i in range(n):
-            print ("Name:", matching_products[i]['name'])
-            print ("Price:", matching_products[i]['price'])
-            print ("Link:", matching_products[i]['link'])
-    else:
-        print("No products found matching", search_term)
+    # if matching_products:
+    #     print("Found", len(matching_products), "products matching", "eggs", "\n")
+    #     for i in range(n):
+    #         print ("Name:", matching_products[i]['name'])
+    #         print ("Price:", matching_products[i]['price'])
+    #         print ("Link:", matching_products[i]['link'])
+    # else:
+    #     print("No products found matching", search_term)
 
     driver.quit()
     return matching_products
